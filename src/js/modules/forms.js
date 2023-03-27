@@ -35,7 +35,6 @@ const forms = (formCalcData) => {
 
     uploadBtns.forEach(item => {
         item.addEventListener('input', () => {
-            console.log(item.files[0]);
             let dots;
             const arr = item.files[0].name.split('.');
 
@@ -56,7 +55,6 @@ const forms = (formCalcData) => {
                     
             let url;
             item.closest('.popup-design') || item.classList.contains('form-calc') ? url = path.designer : url = path.question;
-            console.log(url);
 
             const formData = new FormData(item);
             if (item.classList.contains('form-calc')) {
@@ -66,8 +64,7 @@ const forms = (formCalcData) => {
             }
 
             postData(url, formData)
-                .then((res) => {
-                    console.log(res);
+                .then(() => {
                     setStatus('success');
                 })
                 .catch(() => {
