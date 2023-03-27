@@ -1,5 +1,5 @@
-const modals = () => {
-    const giftTrigger = document.querySelector('.fixed-gift');
+const modals = (giftTriggerSelector) => {
+    const giftTrigger = document.querySelector(giftTriggerSelector);
     const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
     const scrollHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -29,9 +29,14 @@ const modals = () => {
     }
 
     function bindModal(triggerSelector, modalSelector, closeSelector, isHideTrigger = false) {
+        const windows = document.querySelectorAll('[data-modal]');
         const triggers = document.querySelectorAll(triggerSelector);
         const modal = document.querySelector(modalSelector);
         const close = document.querySelector(closeSelector);
+
+        windows.forEach(item => {
+            item.classList.add('animated', 'fadeIn');
+        });
 
         triggers.forEach(item => {
             item.addEventListener('click', () => {
