@@ -4,6 +4,7 @@ import checkTextInputs from './modules/checkTextInputs';
 import phoneMask from './modules/phoneMask';
 import showMoreStyles from './modules/showMoreStyles';
 import calc from './modules/calc';
+import sliders from './modules/sliders';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -17,4 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     calc('#size', '#material', '#options', '.promocode', '.calc-price', '.form-calc .button-order', formCalcData);
     forms(formCalcData);
     showMoreStyles('.button-styles', '#styles .row');
+    sliders('.feedback-slider-item', 'horizontal', '.main-prev-btn', '.main-next-btn');
+    sliders('.main-slider-item', 'vertical');
 });
